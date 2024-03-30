@@ -1,0 +1,8 @@
+res://tiles_2.tscn
+res://stage/tiles.tres
+res://meshtiles2/tiles3.tres
+res://stage/stage.tscn
+res://meshtiles2/tiles4.tres
+res://game.tscn
+res://player/player.gd
+res://addons/boujie_water_shader/prefabs/outset_ocean_material.tres
