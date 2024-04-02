@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0lrpf3mmjdsx"]
+[gd_scene load_steps=20 format=3 uid="uid://d0lrpf3mmjdsx"]
 
 [ext_resource type="PackedScene" uid="uid://dohp772jyjxb7" path="res://stage/stage.tscn" id="1_ybvw5"]
 [ext_resource type="PackedScene" uid="uid://dfxo2jwbj4aeh" path="res://coin/coin.tscn" id="2_chew2"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b17rir1luuuf6" path="res://stage/meshes/ceiling_corner.res" id="5_cpeyy"]
 [ext_resource type="ArrayMesh" uid="uid://cdek4uk8q3o7u" path="res://stage/meshes/ceiling.res" id="6_v4l7u"]
 [ext_resource type="PackedScene" uid="uid://b1ifm0554gtdb" path="res://addons/boujie_water_shader/prefabs/outset_ocean.tscn" id="7_1y7c4"]
+[ext_resource type="PackedScene" uid="uid://d36rklxygfvqp" path="res://box_platform.tscn" id="8_thm68"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.0
@@ -19,6 +20,100 @@ friction = 0.0
 
 [sub_resource type="PhysicsMaterial" id="4"]
 friction = 0.0
+
+[sub_resource type="Animation" id="Animation_wrncb"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(61.5751, 6.55799, -94.8595)]
+}
+
+[sub_resource type="Animation" id="Animation_4n740"]
+resource_name = "move_sideways"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(95.3345, 9, -125.947), Vector3(94.8284, 9, -125.947), Vector3(82.6818, 9, -125.947), Vector3(82.1757, 9, -125.947)]
+}
+
+[sub_resource type="Animation" id="Animation_prpxs"]
+resource_name = "up_down"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(61.5751, 6.55799, -94.8595), Vector3(61.5751, 10.6661, -94.8595)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhj4j"]
+_data = {
+"RESET": SubResource("Animation_wrncb"),
+"move_sideways": SubResource("Animation_4n740"),
+"up_down": SubResource("Animation_prpxs")
+}
+
+[sub_resource type="Animation" id="Animation_b8afd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(76.9733, 10.2185, -149.937)]
+}
+
+[sub_resource type="Animation" id="Animation_ik0qw"]
+resource_name = "plat3"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(76.9733, 10.2185, -149.937), Vector3(66.933, 13.2185, -148.937)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1y6b"]
+_data = {
+"RESET": SubResource("Animation_b8afd"),
+"plat3": SubResource("Animation_ik0qw")
+}
 
 [node name="Game" type="Node3D"]
 
@@ -113,28 +208,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.057, 4.24271, 26.9338)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.057, 5.86534, 28.9399)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0108, 6.26547, 28.8899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4256, 14.3751, -60.5244)
 
 [node name="Coin23" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0108, 7.8881, 28.896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4256, 15.9977, -60.5183)
 
 [node name="Coin22" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0108, 6.26547, 30.8899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4256, 14.3751, -58.5244)
 
 [node name="Coin21" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0108, 7.8881, 28.896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4256, 15.9977, -60.5183)
 
 [node name="Coin20" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0108, 7.8881, 30.896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4256, 15.9977, -58.5183)
 
 [node name="Coin19" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0108, 6.26547, 28.8899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4256, 14.3751, -60.5244)
 
 [node name="Coin18" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.0108, 6.26547, 30.8899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4256, 14.3751, -58.5244)
 
 [node name="Coin17" parent="Coins" instance=ExtResource("2_chew2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0108, 7.8881, 30.896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4256, 15.9977, -58.5183)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("2_chew2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0614, 2.48252, 23.0775)
@@ -275,11 +370,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1639, 8.99785, -8.4981)
 physics_material_override = SubResource("1")
 
 [node name="Enemy7" parent="Enemies" instance=ExtResource("3_nhwvs")]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 66.6985, 6.36581, -1.27355)
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 76.9277, 9.6746, -66.4113)
 physics_material_override = SubResource("1")
 
 [node name="Player" parent="." instance=ExtResource("4_ray4s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.058, 4.12066, -55.9522)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.8001, 3.39533, -54.1351)
 
 [node name="CeilingCorner" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08865, -8, 4.11341)
@@ -293,3 +388,30 @@ mesh = ExtResource("6_v4l7u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.19669, 0)
 levels_of_detail = 3
 far_edge = 4000
+
+[node name="BoxPlatform" parent="." instance=ExtResource("8_thm68")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 61.5751, 6.55799, -94.8595)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BoxPlatform"]
+libraries = {
+"": SubResource("AnimationLibrary_hhj4j")
+}
+autoplay = "up_down"
+
+[node name="BoxPlatform2" parent="." instance=ExtResource("8_thm68")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 61.5751, 6.55799, -94.8595)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BoxPlatform2"]
+libraries = {
+"": SubResource("AnimationLibrary_hhj4j")
+}
+autoplay = "move_sideways"
+
+[node name="BoxPlatform3" parent="." instance=ExtResource("8_thm68")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 76.9733, 10.2185, -149.937)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BoxPlatform3"]
+libraries = {
+"": SubResource("AnimationLibrary_s1y6b")
+}
+autoplay = "plat3"

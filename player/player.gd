@@ -25,7 +25,7 @@ var prev_shoot := false
 var shoot_blend := 0.0
 
 # Number of coins collected.
-var coins := 1000
+var coins := 0
 
 @onready var initial_position := position
 @onready var gravity: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * \
