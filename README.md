@@ -1,15 +1,3 @@
-# Platformer 3D
+# DINO TRIGGER 2: Revenge of the Robots
 
-3D Platformer demo using a
-[`CharacterBody3D`](https://docs.godotengine.org/en/latest/classes/class_characterbody3d.html).
-It uses similar code to the 2D platformer, but implemented in 3D.
-
-Language: GDScript
-
-Renderer: Forward+
-
-Check out this demo on the asset library: https://godotengine.org/asset-library/asset/125
-
-## Screenshots
-
-![Screenshot](screenshots/platformer.webp)
+This was created for TPC's Game Jam. It is currently WIP. Check back for more!
